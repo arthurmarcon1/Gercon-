@@ -14,7 +14,7 @@ class SetCurrentTenant
 
     public function handle(Request $request, Closure $next): Response
     {
-        if (app()->environment('testing')) {
+        if (app()->environment('testing', 'local')) {
             return $next($request);
         }
 
