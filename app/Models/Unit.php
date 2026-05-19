@@ -13,10 +13,18 @@ class Unit extends Model
     /** @use HasFactory<\Database\Factories\UnitFactory> */
     use HasFactory, HasUuids;
 
+    const TYPES = [
+        'apartment'  => 'Apartamento',
+        'penthouse'  => 'Cobertura',
+        'commercial' => 'Comercial',
+        'garage'     => 'Garagem',
+    ];
+
     protected $fillable = [
         'condominium_id',
         'block_id',
         'number',
+        'type',
         'floor',
     ];
 

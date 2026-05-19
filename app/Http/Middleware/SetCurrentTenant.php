@@ -14,7 +14,16 @@ class SetCurrentTenant
 
     public function handle(Request $request, Closure $next): Response
     {
-        if (app()->environment('testing', 'local')) {
+        if (app()->environment('testing')) {
+            return $next($request);
+        }
+
+        if (app()->environment('local')) {
+            $tenant = Tenant::where('active', true)->first();
+            if ($tenant) {
+                $this->tenantManager->set($tenant);
+                setPermissionsTeamId($tenant->id);
+            }
             return $next($request);
         }
 

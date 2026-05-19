@@ -33,6 +33,12 @@ export default function Authenticated({
                                 >
                                     Dashboard
                                 </NavLink>
+                                <NavLink
+                                    href={route('condominiums.index')}
+                                    active={route().current('condominiums.*')}
+                                >
+                                    Condomínios
+                                </NavLink>
                             </div>
                         </div>
 
@@ -136,6 +142,12 @@ export default function Authenticated({
                             active={route().current('dashboard')}
                         >
                             Dashboard
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink
+                            href={route('condominiums.index')}
+                            active={route().current('condominiums.*')}
+                        >
+                            Condomínios
                         </ResponsiveNavLink>
                     </div>
 
